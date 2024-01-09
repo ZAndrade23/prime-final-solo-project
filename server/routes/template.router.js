@@ -16,6 +16,19 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  const queryText = `SELECT * FROM "reports_rating" 
+  WHERE "id" = $1
+  `;
+  pool.query(queryText, [req.params.id])
+    .then((result) =>
+    // returns the first item in the array
+     { res.send(result.rows[0]); })
+    .catch((err) => {
+      console.log('Error completing SELECT ID query', err);
+      res.sendStatus(500);
+    });
+});
 /**
  * POST route template
  */

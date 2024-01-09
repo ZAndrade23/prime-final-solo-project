@@ -3,25 +3,32 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import './InfoPage.css';
+import { useHistory } from 'react-router-dom';
 // This is one of our simplest components
 // It doesn't have local state
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is
 
 function InfoPage() {
-  
+  const history= useHistory();
   const dispatch = useDispatch();
   const anime= useSelector(store => store.anime);
   useEffect(() => {
     dispatch({ type: 'FETCH_ANIME' });
   },[]);
+  const handleClick = (anime) => () => {
+    console.log(anime);
+  // Dispatch to redux and navigate to the details page and then select elected movie not all movies
+  dispatch({type: 'SET_DETAILS', payload: anime});  
+  history.push(`/details/${anime.report_item_id}`);
+  };
   return (
     <div className="container">
       <p>Info Page</p>
       <h1>AnimeList</h1>
       {anime.map(anime => {
         return (
-        <table  id='animeItems' key = {anime.report_item_id}>
+        <table  id='animeItems' onClick={handleClick(anime)} key = {anime.report_item_id}>
           <thead>
             <tr>
               {/* <th>Rank</th> */}

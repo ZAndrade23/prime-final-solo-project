@@ -15,8 +15,17 @@ function* fetchAllAnime(action) {
     }
   }
 
+  function* fetchAnimeId(action) {
+    try{
+      const animeId = yield axios.get(`/api/anime/${action.payload}`);
+      yield put ({type:'SET_DETAILS', payload: animeId.data});
+    } catch (e) {
+      console.log(e);
+    }
+  }
   function* animeSaga() {
     yield takeEvery('FETCH_ANIME', fetchAllAnime);
+    yield takeEvery('FETCH_ANIME_ID', fetchAnimeId)
   }
 
   export default animeSaga;
