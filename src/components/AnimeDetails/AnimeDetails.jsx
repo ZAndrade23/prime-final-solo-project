@@ -19,6 +19,30 @@ useEffect(() => {
             <h1>Anime Details</h1>
             <div>
                 <h2>{animeId}</h2>
+                
+                    
+                        <table key={details.report_item_id} >
+                            <thead>
+                                <tr>
+                                    <th>Anime</th>
+                                    <th>Votes</th>
+                                    <th>Seen</th>
+                                    <th>Raiting</th>
+                                    <th>Weighted</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
+                                    <td>{details.report_item_anime}</td>
+                                    <td>{details.report_item_nb_votes}</td>
+                                    <td>{details.report_item_nb_seen}</td>
+                                    <td>{details.report_item_straight_average}</td>
+                                    <td>{details.report_item_weighted_average}</td>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    )
+                
             </div>
         </main>
     </div>
