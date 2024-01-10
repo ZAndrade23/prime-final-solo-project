@@ -22,13 +22,16 @@ const history =useHistory();
     dispatch({type: 'CLEAR_DETAILS'});
     history.push('/info');
   }
+  const clickHandler = () => {
+    dispatch({type: 'ADD_TO_LIST'});
+  }
 
   return (
     <div>
         <main>
             <h1>Anime Details</h1>
             <div>
-                <h2>{animeId}</h2>
+                {/* <h2>{animeId}</h2> */}
                 
                     <button onClick={handleClick}> Return To Anime Page</button>
                         <table id='animeDetails' key={details.report_item_id} >
@@ -52,7 +55,7 @@ const history =useHistory();
                                 </tbody>
                         </table>
                     
-                
+                <button onClick={clickHandler}>Add To List</button>
             </div>
         </main>
     </div>
