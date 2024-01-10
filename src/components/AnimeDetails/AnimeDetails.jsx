@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import './AnimeDetails.css';
 
@@ -15,6 +16,13 @@ useEffect(() => {
     dispatch({type: 'FETCH_ANIME_ID', payload: animeId});
   }, [animeId]);
 
+const history =useHistory();
+
+  const handleClick = () => {
+    dispatch({type: 'CLEAR_DETAILS'});
+    history.push('/info');
+  }
+
   return (
     <div>
         <main>
@@ -22,7 +30,7 @@ useEffect(() => {
             <div>
                 <h2>{animeId}</h2>
                 
-                    
+                    <button onClick={handleClick}> Return To Anime Page</button>
                         <table id='animeDetails' key={details.report_item_id} >
                             <thead>
                                 <tr>
