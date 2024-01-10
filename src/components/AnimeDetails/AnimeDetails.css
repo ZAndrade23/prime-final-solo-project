@@ -1,0 +1,7 @@
+#animeDetails{
+    border: 2px solid;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    /* vertical-align:; */
+}

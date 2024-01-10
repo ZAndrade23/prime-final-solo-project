@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
+import './AnimeDetails.css';
+
 function AnimeDetails() {
     const dispatch= useDispatch();
 const details = useSelector(store => store.details);
@@ -21,7 +23,7 @@ useEffect(() => {
                 <h2>{animeId}</h2>
                 
                     
-                        <table key={details.report_item_id} >
+                        <table id='animeDetails' key={details.report_item_id} >
                             <thead>
                                 <tr>
                                     <th>Anime</th>
@@ -41,7 +43,7 @@ useEffect(() => {
                                     </tr>
                                 </tbody>
                         </table>
-                    )
+                    
                 
             </div>
         </main>
