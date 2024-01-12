@@ -9,10 +9,10 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS "reports_rating" (
+CREATE TABLE IF NOT EXISTS "anime" (
     "report" INT,
     "report_item" INT,
-    "report_item_id" INT,
+    "report_item_id" INT PRIMARY KEY,
     "report_item_anime" TEXT,
     "report_item_anime_href" TEXT,
     "report_item_nb_votes" INT,
@@ -21,7 +21,16 @@ CREATE TABLE IF NOT EXISTS "reports_rating" (
     "report_item_weighted_average" NUMERIC(17, 16),
     "report_item_bayesian_average" NUMERIC(17, 16)
 );
-INSERT INTO "reports_rating" VALUES (NULL,NULL,10216,'Fullmetal Alchemist: Brotherhood (TV)','/encyclopedia/anime.php?id=10216',6114,11442,9.09000015258789,9.074600219726562,9.07096004486084),
+
+-- Add to list would go into this table
+CREATE TABLE "user_anime" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INT REFERENCES "user",
+    "report_item_id" INT REFERENCES "anime",
+    "status" VARCHAR(250)
+);
+
+INSERT INTO "anime" VALUES (NULL,NULL,10216,'Fullmetal Alchemist: Brotherhood (TV)','/encyclopedia/anime.php?id=10216',6114,11442,9.09000015258789,9.074600219726562,9.07096004486084),
 	(NULL,NULL,11770,'Steins;Gate (TV)','/encyclopedia/anime.php?id=11770',4877,7171,9.075300216674805,9.037099838256836,9.032646179199219),
 	(NULL,NULL,9701,'Clannad After Story (TV)','/encyclopedia/anime.php?id=9701',5389,8678,8.848999977111816,9.020299911499023,9.016311645507812),
 	(NULL,NULL,210,'Rurouni Kenshin: Trust & Betrayal (OAV)','/encyclopedia/anime.php?id=210',6710,10478,8.911800384521484,8.961199760437012,8.958118438720703),
@@ -271,7 +280,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,10216,'Fullmetal Alchemist: Broth
 	(NULL,NULL,1800,'Legend of the Galactic Heroes: A Hundred Billion Stars, A Hundred Billion Lights (OAV)','/encyclopedia/anime.php?id=1800',108,175,8.296299934387207,8.229100227355957,8.143275260925293),
 	(NULL,NULL,22137,'Weathering With You (movie)','/encyclopedia/anime.php?id=22137',309,426,8.194199562072754,8.169899940490723,8.14004898071289),
 	(NULL,NULL,6488,'Legend of the Galactic Heroes: Spiral Labyrinth (OAV)','/encyclopedia/anime.php?id=6488',81,136,8.321000099182129,8.253399848937988,8.139601707458496);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,9700,'Rainbow - Nisha Rokub? no Shichinin (TV)','/encyclopedia/anime.php?id=9700',459,802,8.26360034942627,8.157699584960938,8.137676239013672),
+INSERT INTO "anime" VALUES (NULL,NULL,9700,'Rainbow - Nisha Rokub? no Shichinin (TV)','/encyclopedia/anime.php?id=9700',459,802,8.26360034942627,8.157699584960938,8.137676239013672),
 	(NULL,NULL,14364,'Puella Magi Madoka Magica the Movie Part 2: Eternal (movie)','/encyclopedia/anime.php?id=14364',473,695,8.20300006866455,8.155599594116211,8.136212348937988),
 	(NULL,NULL,287,'Now and Then, Here and There (TV)','/encyclopedia/anime.php?id=287',2230,3506,8.170000076293945,8.134900093078613,8.13082218170166),
 	(NULL,NULL,10704,'Tokyo Magnitude 8.0 (TV)','/encyclopedia/anime.php?id=10704',1032,2256,8.239299774169922,8.138799667358398,8.129998207092285),
@@ -521,7 +530,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,9700,'Rainbow - Nisha Rokub? no S
 	(NULL,NULL,4230,'Future GPX Cyber Formula Zero (OAV)','/encyclopedia/anime.php?id=4230',52,104,7.596199989318848,8.000499725341797,7.890345573425293),
 	(NULL,NULL,16342,'Tsukimonogatari (TV)','/encyclopedia/anime.php?id=16342',372,579,7.921999931335449,7.904999732971191,7.8896284103393555),
 	(NULL,NULL,24222,'Tiger & Bunny 2 (TV)','/encyclopedia/anime.php?id=24222',173,228,7.901700019836426,7.922300338745117,7.889276504516602);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,1149,'Dear Brother (TV)','/encyclopedia/anime.php?id=1149',209,415,7.956899642944336,7.9156999588012695,7.888422012329102),
+INSERT INTO "anime" VALUES (NULL,NULL,1149,'Dear Brother (TV)','/encyclopedia/anime.php?id=1149',209,415,7.956899642944336,7.9156999588012695,7.888422012329102),
 	(NULL,NULL,2726,'Space Runaway Ideon: Be Invoked (movie)','/encyclopedia/anime.php?id=2726',109,151,7.899100303649902,7.939999580383301,7.887778282165527),
 	(NULL,NULL,9694,'Seto no Hanayome (OAV)','/encyclopedia/anime.php?id=9694',494,869,8.014200210571289,7.899299621582031,7.887777328491211),
 	(NULL,NULL,16278,'Attack on Titan: No Regrets (OAV)','/encyclopedia/anime.php?id=16278',201,410,7.980099678039551,7.9156999588012695,7.887407302856445),
@@ -771,7 +780,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,1149,'Dear Brother (TV)','/encycl
 	(NULL,NULL,920,'Tenchi Muyo! The Night Before The Carnival (OAV)','/encyclopedia/anime.php?id=920',760,1584,7.828900337219238,7.758700370788574,7.753681182861328),
 	(NULL,NULL,11096,'Aoi Bungaku Series (TV)','/encyclopedia/anime.php?id=11096',364,713,7.807700157165527,7.763899803161621,7.753429412841797),
 	(NULL,NULL,5087,'Rozen Maiden: Tr�umend (TV)','/encyclopedia/anime.php?id=5087',1565,2702,7.877300262451172,7.755000114440918,7.752572059631348);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,13943,'You and Me. Season 2 (TV)','/encyclopedia/anime.php?id=13943',207,369,7.8018999099731445,7.770400047302246,7.752079963684082),
+INSERT INTO "anime" VALUES (NULL,NULL,13943,'You and Me. Season 2 (TV)','/encyclopedia/anime.php?id=13943',207,369,7.8018999099731445,7.770400047302246,7.752079963684082),
 	(NULL,NULL,16030,'Black Butler: Book of Circus (TV)','/encyclopedia/anime.php?id=16030',278,638,7.823699951171875,7.765700340270996,7.7520599365234375),
 	(NULL,NULL,495,'Royal Space Force - The Wings of Honn�amise (movie)','/encyclopedia/anime.php?id=495',938,1425,7.767600059509277,7.754599571228027,7.750578880310059),
 	(NULL,NULL,24066,'Aria the Crepuscolo (movie)','/encyclopedia/anime.php?id=24066',25,32,7.680000305175781,7.901000022888184,7.750302314758301),
@@ -1021,7 +1030,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,13943,'You and Me. Season 2 (TV)'
 	(NULL,NULL,12249,'Detective Conan: Quarter of Silence (movie 15)','/encyclopedia/anime.php?id=12249',76,199,7.75,7.65880012512207,7.631173133850098),
 	(NULL,NULL,4397,'Rockman.EXE Stream (TV)','/encyclopedia/anime.php?id=4397',47,152,7.808500289916992,7.67549991607666,7.630906105041504),
 	(NULL,NULL,804,'Sexy Commando Gaiden: Sugoi yo!! Masaru-san (TV)','/encyclopedia/anime.php?id=804',144,277,7.6875,7.64430046081543,7.629848480224609);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,11338,'Mardock Scramble: The First Compression (movie)','/encyclopedia/anime.php?id=11338',571,811,7.672499656677246,7.632699966430664,7.6290740966796875),
+INSERT INTO "anime" VALUES (NULL,NULL,11338,'Mardock Scramble: The First Compression (movie)','/encyclopedia/anime.php?id=11338',571,811,7.672499656677246,7.632699966430664,7.6290740966796875),
 	(NULL,NULL,22900,'Kakushigoto (TV)','/encyclopedia/anime.php?id=22900',149,311,7.651000022888184,7.6421003341674805,7.6282806396484375),
 	(NULL,NULL,3741,'Kyo kara Maoh! (TV)','/encyclopedia/anime.php?id=3741',1124,2604,7.726900100708008,7.630000114440918,7.628169059753418),
 	(NULL,NULL,16194,'Hybrid Child (OAV)','/encyclopedia/anime.php?id=16194',49,106,7.65310001373291,7.670000076293945,7.628044128417969),
@@ -1271,7 +1280,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,11338,'Mardock Scramble: The Firs
 	(NULL,NULL,21514,'Quintessential Quintuplets (TV)','/encyclopedia/anime.php?id=21514',314,473,7.544599533081055,7.5360002517700195,7.533660888671875),
 	(NULL,NULL,13781,'Tiger & Bunny the Movie: The Beginning (movie)','/encyclopedia/anime.php?id=13781',107,199,7.551400184631348,7.540499687194824,7.533638954162598),
 	(NULL,NULL,22021,'Ride Your Wave (movie)','/encyclopedia/anime.php?id=22021',96,125,7.531200408935547,7.541199684143066,7.533563613891602);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,22307,'If My Favorite Pop Idol Made it to the Budokan, I Would Die (TV)','/encyclopedia/anime.php?id=22307',74,141,7.608099937438965,7.543399810791016,7.533504486083984),
+INSERT INTO "anime" VALUES (NULL,NULL,22307,'If My Favorite Pop Idol Made it to the Budokan, I Would Die (TV)','/encyclopedia/anime.php?id=22307',74,141,7.608099937438965,7.543399810791016,7.533504486083984),
 	(NULL,NULL,24754,'That Time I Got Reincarnated as a Slime: Scarlet Bond (movie)','/encyclopedia/anime.php?id=24754',88,121,7.56820011138916,7.541799545288086,7.533481597900391),
 	(NULL,NULL,24384,'Laid-Back Camp (OAV)','/encyclopedia/anime.php?id=24384',16,25,7.625,7.579000473022461,7.533360481262207),
 	(NULL,NULL,18588,'Matoi the Sacred Slayer (TV)','/encyclopedia/anime.php?id=18588',103,153,7.5630998611450195,7.539699554443359,7.5326995849609375),
@@ -1521,7 +1530,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,22307,'If My Favorite Pop Idol Ma
 	(NULL,NULL,11723,'Bleach the Movie: Hell Verse (movie 4)','/encyclopedia/anime.php?id=11723',479,1434,7.569899559020996,7.460200309753418,7.460796356201172),
 	(NULL,NULL,25068,'Dr. Stone: New World (TV 3)','/encyclopedia/anime.php?id=25068',139,312,7.438799858093262,7.458600044250488,7.460667610168457),
 	(NULL,NULL,17676,'Ajin (TV)','/encyclopedia/anime.php?id=17676',499,841,7.50100040435791,7.459600448608398,7.4601898193359375);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,4195,'Lupin III: Swallowtail Tattoo (special)','/encyclopedia/anime.php?id=4195',91,212,7.340700149536133,7.4561004638671875,7.459446907043457),
+INSERT INTO "anime" VALUES (NULL,NULL,4195,'Lupin III: Swallowtail Tattoo (special)','/encyclopedia/anime.php?id=4195',91,212,7.340700149536133,7.4561004638671875,7.459446907043457),
 	(NULL,NULL,25488,'TONIKAWA: Over The Moon For You (OAV 2)','/encyclopedia/anime.php?id=25488',39,56,7.512800216674805,7.451000213623047,7.458977699279785),
 	(NULL,NULL,16583,'Yamada-kun and the Seven Witches (TV)','/encyclopedia/anime.php?id=16583',456,750,7.535099983215332,7.458100318908691,7.45878791809082),
 	(NULL,NULL,22556,'High School Fleet (movie)','/encyclopedia/anime.php?id=22556',17,22,7.647100448608398,7.440099716186523,7.458661079406738),
@@ -1771,7 +1780,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,4195,'Lupin III: Swallowtail Tatt
 	(NULL,NULL,24385,'Lupin the 3rd Part 6 (TV)','/encyclopedia/anime.php?id=24385',123,186,7.33329963684082,7.380100250244141,7.3904314041137695),
 	(NULL,NULL,24595,'Police in a Pod (TV)','/encyclopedia/anime.php?id=24595',234,369,7.371800422668457,7.384699821472168,7.3901472091674805),
 	(NULL,NULL,1503,'Glass Mask (TV 1/1984)','/encyclopedia/anime.php?id=1503',67,168,7.223899841308594,7.370499610900879,7.3896331787109375);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,15767,'Riddle Story of Devil (TV)','/encyclopedia/anime.php?id=15767',604,918,7.45359992980957,7.387499809265137,7.389622688293457),
+INSERT INTO "anime" VALUES (NULL,NULL,15767,'Riddle Story of Devil (TV)','/encyclopedia/anime.php?id=15767',604,918,7.45359992980957,7.387499809265137,7.389622688293457),
 	(NULL,NULL,21727,'Lord El-Melloi II''s Case Files: Rail Zeppelin Grace note (TV)','/encyclopedia/anime.php?id=21727',109,254,7.357799530029297,7.377799987792969,7.389569282531738),
 	(NULL,NULL,22010,'Goblin Slayer: Goblin''s Crown (movie)','/encyclopedia/anime.php?id=22010',163,234,7.404899597167969,7.381600379943848,7.38947868347168),
 	(NULL,NULL,17006,'Dragon Ball Super (TV)','/encyclopedia/anime.php?id=17006',255,625,7.423500061035156,7.383600234985352,7.388679504394531),
@@ -2021,7 +2030,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,15767,'Riddle Story of Devil (TV)
 	(NULL,NULL,24027,'My Senpai Is Annoying (TV)','/encyclopedia/anime.php?id=24027',298,412,7.332200050354004,7.3277997970581055,7.334683418273926),
 	(NULL,NULL,9135,'Gag Manga Biyori 3 (TV)','/encyclopedia/anime.php?id=9135',19,32,7.2104997634887695,7.226300239562988,7.334439277648926),
 	(NULL,NULL,21976,'Baki (ONA 2)','/encyclopedia/anime.php?id=21976',56,96,7.285699844360352,7.297599792480469,7.334320068359375);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,6189,'Mah?jin Guru Guru (movie)','/encyclopedia/anime.php?id=6189',31,65,7.161299705505371,7.267900466918945,7.334259986877441),
+INSERT INTO "anime" VALUES (NULL,NULL,6189,'Mah?jin Guru Guru (movie)','/encyclopedia/anime.php?id=6189',31,65,7.161299705505371,7.267900466918945,7.334259986877441),
 	(NULL,NULL,1599,'Doraemon: Ob?chan no Omoide (movie)','/encyclopedia/anime.php?id=1599',14,53,7.285699844360352,7.187199592590332,7.334199905395508),
 	(NULL,NULL,1178,'Muteki Ch?jin Zambot 3 (TV)','/encyclopedia/anime.php?id=1178',56,83,7.178600311279297,7.29740047454834,7.334160804748535),
 	(NULL,NULL,7383,'Moonlight Mile (TV)','/encyclopedia/anime.php?id=7383',211,398,7.355500221252441,7.32390022277832,7.333687782287598),
@@ -2271,7 +2280,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,6189,'Mah?jin Guru Guru (movie)',
 	(NULL,NULL,2029,'Kaikan Phrase (TV)','/encyclopedia/anime.php?id=2029',187,508,7.395700454711914,7.250100135803223,7.266196250915527),
 	(NULL,NULL,22922,'Omoi, Omoware, Furi, Furare (movie)','/encyclopedia/anime.php?id=22922',18,22,7.111100196838379,7.098899841308594,7.266156196594238),
 	(NULL,NULL,1831,'Brave Command Dagwon (TV)','/encyclopedia/anime.php?id=1831',19,56,7.105299949645996,7.107700347900391,7.2661542892456055);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,1966,'Shutsugeki! Machine Robo Rescue (TV)','/encyclopedia/anime.php?id=1966',24,67,7.125,7.140700340270996,7.266147613525391),
+INSERT INTO "anime" VALUES (NULL,NULL,1966,'Shutsugeki! Machine Robo Rescue (TV)','/encyclopedia/anime.php?id=1966',24,67,7.125,7.140700340270996,7.266147613525391),
 	(NULL,NULL,1649,'Ojamajo Doremi DOKKAAN! (TV)','/encyclopedia/anime.php?id=1649',57,141,7.368399620056152,7.213199615478516,7.266044616699219),
 	(NULL,NULL,2226,'Galaxy Cyclone Braiger (TV)','/encyclopedia/anime.php?id=2226',16,34,7,7.077300071716309,7.265787124633789),
 	(NULL,NULL,15837,'Noragami (OAV)','/encyclopedia/anime.php?id=15837',235,453,7.251099586486816,7.252900123596191,7.2657365798950195),
@@ -2521,7 +2530,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,1966,'Shutsugeki! Machine Robo Re
 	(NULL,NULL,554,'City Hunter: Death of the Vicious Criminal Ryo Saeba (special)','/encyclopedia/anime.php?id=554',53,148,7.1321001052856445,7.130499839782715,7.203780174255371),
 	(NULL,NULL,10119,'Cobra The Animation: Time Drive (OAV)','/encyclopedia/anime.php?id=10119',62,108,7.096799850463867,7.14109992980957,7.203749656677246),
 	(NULL,NULL,13558,'High School DxD (TV)','/encyclopedia/anime.php?id=13558',1572,2984,7.40839958190918,7.200799942016602,7.203274726867676);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,21672,'Ghost in the Shell: SAC_2045 (ONA)','/encyclopedia/anime.php?id=21672',93,136,7.161299705505371,7.161399841308594,7.203243255615234),
+INSERT INTO "anime" VALUES (NULL,NULL,21672,'Ghost in the Shell: SAC_2045 (ONA)','/encyclopedia/anime.php?id=21672',93,136,7.161299705505371,7.161399841308594,7.203243255615234),
 	(NULL,NULL,10200,'Maria Holic (TV)','/encyclopedia/anime.php?id=10200',1181,2188,7.275199890136719,7.199700355529785,7.202998161315918),
 	(NULL,NULL,16654,'I Can''t Understand What My Husband is Saying: 2nd Thread (TV 2)','/encyclopedia/anime.php?id=16654',262,460,7.217599868774414,7.187899589538574,7.202776908874512),
 	(NULL,NULL,23526,'KING�S RAID: Successors of the Will (TV)','/encyclopedia/anime.php?id=23526',105,161,7.199999809265137,7.165599822998047,7.202729225158691),
@@ -2771,7 +2780,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,21672,'Ghost in the Shell: SAC_20
 	(NULL,NULL,3257,'Jack and the Beanstalk (movie)','/encyclopedia/anime.php?id=3257',19,44,6.894700050354004,6.887400150299072,7.139315605163574),
 	(NULL,NULL,1939,'Kaze no Naka no Shoujo Kinpatsu no Jeanie (TV)','/encyclopedia/anime.php?id=1939',15,53,7.133299827575684,6.818699836730957,7.138527870178223),
 	(NULL,NULL,2297,'Please Twins! (TV)','/encyclopedia/anime.php?id=2297',2525,4656,7.2617998123168945,7.136599540710449,7.1384992599487305);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,2223,'Shin Tetsujin 28 (TV 1980)','/encyclopedia/anime.php?id=2223',24,68,7.08329963684082,6.938499927520752,7.138442039489746),
+INSERT INTO "anime" VALUES (NULL,NULL,2223,'Shin Tetsujin 28 (TV 1980)','/encyclopedia/anime.php?id=2223',24,68,7.08329963684082,6.938499927520752,7.138442039489746),
 	(NULL,NULL,1818,'Bomberman Jetters (TV)','/encyclopedia/anime.php?id=1818',42,153,7.214300155639648,7.023900032043457,7.1382246017456055),
 	(NULL,NULL,26950,'TenPuru (TV)','/encyclopedia/anime.php?id=26950',83,180,7.048199653625488,7.0802001953125,7.1380767822265625),
 	(NULL,NULL,1133,'Samurai Deeper Kyo (TV)','/encyclopedia/anime.php?id=1133',2021,4157,7.195400238037109,7.13539981842041,7.137779235839844),
@@ -3021,7 +3030,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,2223,'Shin Tetsujin 28 (TV 1980)'
 	(NULL,NULL,16520,'Etotama (TV)','/encyclopedia/anime.php?id=16520',135,218,7.066699981689453,7.04010009765625,7.081545829772949),
 	(NULL,NULL,22958,'Hortensia Saga (TV)','/encyclopedia/anime.php?id=22958',126,181,7.055600166320801,7.036899566650391,7.081329345703125),
 	(NULL,NULL,10468,'07-Ghost (TV)','/encyclopedia/anime.php?id=10468',1029,2185,7.234199523925781,7.075599670410156,7.0810441970825195);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,6366,'Nerima Daikon Brothers (TV)','/encyclopedia/anime.php?id=6366',256,576,7.128899574279785,7.059100151062012,7.080986976623535),
+INSERT INTO "anime" VALUES (NULL,NULL,6366,'Nerima Daikon Brothers (TV)','/encyclopedia/anime.php?id=6366',256,576,7.128899574279785,7.059100151062012,7.080986976623535),
 	(NULL,NULL,22555,'Misfit of Demon King Academy (TV)','/encyclopedia/anime.php?id=22555',261,485,7.1302995681762695,7.059499740600586,7.080967903137207),
 	(NULL,NULL,21509,'Date A Live III (TV)','/encyclopedia/anime.php?id=21509',117,192,7.059800148010254,7.0329999923706055,7.080899238586426),
 	(NULL,NULL,10174,'Batman: Gotham Knight (movie)','/encyclopedia/anime.php?id=10174',476,922,7.1197004318237305,7.068900108337402,7.080679893493652),
@@ -3271,7 +3280,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,6366,'Nerima Daikon Brothers (TV)
 	(NULL,NULL,10585,'Ani-Kuri 15 (special)','/encyclopedia/anime.php?id=10585',114,210,6.92110013961792,6.969099998474121,7.025111198425293),
 	(NULL,NULL,6516,'Binetsukko ?37? (OAV)','/encyclopedia/anime.php?id=6516',36,65,6.5278000831604,6.8471999168396,7.024720191955566),
 	(NULL,NULL,8500,'Aneki� My Sweet Elder Sister The Animation (OAV)','/encyclopedia/anime.php?id=8500',59,229,6.813600063323975,6.916200160980225,7.0245561599731445);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,9190,'Kirepapa (OAV)','/encyclopedia/anime.php?id=9190',303,669,7.207900047302246,7.003399848937988,7.024501800537109),
+INSERT INTO "anime" VALUES (NULL,NULL,9190,'Kirepapa (OAV)','/encyclopedia/anime.php?id=9190',303,669,7.207900047302246,7.003399848937988,7.024501800537109),
 	(NULL,NULL,3868,'New Getter Robo (OAV)','/encyclopedia/anime.php?id=3868',117,239,6.965799808502197,6.969799995422363,7.024453163146973),
 	(NULL,NULL,16606,'Witch Craft Works (OAV)','/encyclopedia/anime.php?id=16606',35,65,6.94290018081665,6.841400146484375,7.024200439453125),
 	(NULL,NULL,2859,'Weiss Kreuz Verbrechen & Strafe (OAV)','/encyclopedia/anime.php?id=2859',215,548,7.097700119018555,6.994100093841553,7.023879051208496),
@@ -3521,7 +3530,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,9190,'Kirepapa (OAV)','/encyclope
 	(NULL,NULL,2225,'Thunder Jet (TV)','/encyclopedia/anime.php?id=2225',40,112,6.974999904632568,6.7835001945495605,6.964385509490967),
 	(NULL,NULL,6378,'Mobile Suit Gundam Seed C.E.73: Stargazer (ONA)','/encyclopedia/anime.php?id=6378',443,1009,7.04740047454834,6.947999954223633,6.964334487915039),
 	(NULL,NULL,871,'Armor Hunter Mellowlink (OAV)','/encyclopedia/anime.php?id=871',70,152,6.842899799346924,6.860799789428711,6.964200019836426);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,16028,'Aldnoah.Zero (TV)','/encyclopedia/anime.php?id=16028',1117,1689,6.999100208282471,6.957699775695801,6.964179992675781),
+INSERT INTO "anime" VALUES (NULL,NULL,16028,'Aldnoah.Zero (TV)','/encyclopedia/anime.php?id=16028',1117,1689,6.999100208282471,6.957699775695801,6.964179992675781),
 	(NULL,NULL,3568,'Yugo the Negotiator (TV)','/encyclopedia/anime.php?id=3568',245,437,6.991799831390381,6.9344000816345215,6.963956832885742),
 	(NULL,NULL,18469,'Lupin III Italian Game (special)','/encyclopedia/anime.php?id=18469',18,28,6.5,6.561500072479248,6.963868618011475),
 	(NULL,NULL,9194,'Naruto Shipp?den the Movie: Bonds (movie)','/encyclopedia/anime.php?id=9194',685,1859,7.083200454711914,6.953199863433838,6.963775157928467),
@@ -3771,7 +3780,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,16028,'Aldnoah.Zero (TV)','/encyc
 	(NULL,NULL,6449,'Black Blood Brothers (TV)','/encyclopedia/anime.php?id=6449',1923,3810,7.041099548339844,6.898399829864502,6.902612209320068),
 	(NULL,NULL,15757,'Brynhildr in the Darkness (TV)','/encyclopedia/anime.php?id=15757',627,1074,7.008000373840332,6.889599800109863,6.902520656585693),
 	(NULL,NULL,2400,'Dragon Ball Movie 4: The Path to Power (movie)','/encyclopedia/anime.php?id=2400',389,1541,6.976900100708008,6.8815999031066895,6.902429580688477);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,19317,'Is It Wrong to Try to Pick Up Girls in a Dungeon? (OAV)','/encyclopedia/anime.php?id=19317',139,247,6.928100109100342,6.843800067901611,6.902124404907227),
+INSERT INTO "anime" VALUES (NULL,NULL,19317,'Is It Wrong to Try to Pick Up Girls in a Dungeon? (OAV)','/encyclopedia/anime.php?id=19317',139,247,6.928100109100342,6.843800067901611,6.902124404907227),
 	(NULL,NULL,10168,'Umineko - When They Cry (TV)','/encyclopedia/anime.php?id=10168',847,1567,7.0152997970581055,6.892300128936768,6.9018754959106445),
 	(NULL,NULL,3527,'Littlest Warrior (movie)','/encyclopedia/anime.php?id=3527',14,32,6.357100009918213,6.322400093078613,6.901800155639648),
 	(NULL,NULL,9060,'Naisho no Tsubomi (OAV)','/encyclopedia/anime.php?id=9060',120,213,6.866700172424316,6.834199905395508,6.901796817779541),
@@ -4021,7 +4030,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,19317,'Is It Wrong to Try to Pick
 	(NULL,NULL,16300,'Tantei Kageki Milky Holmes TD (TV)','/encyclopedia/anime.php?id=16300',26,41,6.653800010681152,6.4903998374938965,6.837179660797119),
 	(NULL,NULL,2523,'Digimon Adventure: Born of Koromon (movie)','/encyclopedia/anime.php?id=2523',557,1873,6.910200119018555,6.820899963378906,6.837089538574219),
 	(NULL,NULL,7246,'Amazing Nuts! (OAV)','/encyclopedia/anime.php?id=7246',174,304,6.839099884033203,6.785200119018555,6.837029933929443);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,23894,'BOFURI: I Don''t Want to Get Hurt, so I''ll Max Out My Defense. Season 2 (TV 2)','/encyclopedia/anime.php?id=23894',316,464,6.905099868774414,6.808300018310547,6.836847305297852),
+INSERT INTO "anime" VALUES (NULL,NULL,23894,'BOFURI: I Don''t Want to Get Hurt, so I''ll Max Out My Defense. Season 2 (TV 2)','/encyclopedia/anime.php?id=23894',316,464,6.905099868774414,6.808300018310547,6.836847305297852),
 	(NULL,NULL,1307,'Dogtanian and The Three Muskehounds (TV)','/encyclopedia/anime.php?id=1307',58,153,6.672399997711182,6.68120002746582,6.836755752563477),
 	(NULL,NULL,26567,'Dead Mount Death Play (TV)','/encyclopedia/anime.php?id=26567',122,307,6.713099956512451,6.762400150299072,6.836394309997559),
 	(NULL,NULL,9697,'Magician''s Academy (TV)','/encyclopedia/anime.php?id=9697',411,894,6.953800201416016,6.8140997886657715,6.8360748291015625),
@@ -4271,7 +4280,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,23894,'BOFURI: I Don''t Want to G
 	(NULL,NULL,11472,'Samay? Midara na Lunatics (OAV)','/encyclopedia/anime.php?id=11472',26,36,6.307700157165527,6.385799884796143,6.769189834594727),
 	(NULL,NULL,4934,'Nineteen 19 (OAV)','/encyclopedia/anime.php?id=4934',83,112,6.662700176239014,6.64900016784668,6.769111633300781),
 	(NULL,NULL,15752,'Hamatora (TV)','/encyclopedia/anime.php?id=15752',312,667,6.8140997886657715,6.7368998527526855,6.768863677978516);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,263,'El-Hazard: The Wanderers (TV)','/encyclopedia/anime.php?id=263',437,1098,6.796299934387207,6.745699882507324,6.768531322479248),
+INSERT INTO "anime" VALUES (NULL,NULL,263,'El-Hazard: The Wanderers (TV)','/encyclopedia/anime.php?id=263',437,1098,6.796299934387207,6.745699882507324,6.768531322479248),
 	(NULL,NULL,10151,'Legends of the Dark King: A Fist of the North Star Story (TV)','/encyclopedia/anime.php?id=10151',93,206,6.709700107574463,6.661099910736084,6.768402576446533),
 	(NULL,NULL,9691,'Blade of the Immortal (TV)','/encyclopedia/anime.php?id=9691',660,1482,6.853000164031982,6.7530999183654785,6.768223762512207),
 	(NULL,NULL,1067,'Ai to Y?ki no Pig Girl Tonde B?rin (TV)','/encyclopedia/anime.php?id=1067',92,273,6.61959981918335,6.6595001220703125,6.768026351928711),
@@ -4521,7 +4530,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,263,'El-Hazard: The Wanderers (TV
 	(NULL,NULL,9013,'Shina Dark - Kuroki Tsuki no ? to S?heki no Tsuki no Himegimi (OAV)','/encyclopedia/anime.php?id=9013',32,70,6.281199932098389,6.35290002822876,6.696295738220215),
 	(NULL,NULL,19022,'Aho-Girl (TV)','/encyclopedia/anime.php?id=19022',250,396,6.716000080108643,6.652299880981445,6.696256637573242),
 	(NULL,NULL,8078,'Hit? Meguri The Animation (OAV)','/encyclopedia/anime.php?id=8078',30,58,6.133299827575684,6.329899787902832,6.69622278213501);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,1240,'Samurai Pizza Cats (TV)','/encyclopedia/anime.php?id=1240',396,1282,6.752500057220459,6.668399810791016,6.6961541175842285),
+INSERT INTO "anime" VALUES (NULL,NULL,1240,'Samurai Pizza Cats (TV)','/encyclopedia/anime.php?id=1240',396,1282,6.752500057220459,6.668399810791016,6.6961541175842285),
 	(NULL,NULL,11442,'Kansen 2: Inzai Toshi (OAV)','/encyclopedia/anime.php?id=11442',32,54,6.218800067901611,6.352499961853027,6.696017265319824),
 	(NULL,NULL,19663,'Sex Hypnotist Zero (OAV)','/encyclopedia/anime.php?id=19663',16,17,6,6.008900165557861,6.6959733963012695),
 	(NULL,NULL,16307,'Sh?nen Hollywood - Holly Stage for 50 (TV)','/encyclopedia/anime.php?id=16307',18,33,6.1666998863220215,6.08459997177124,6.69561243057251),
@@ -4771,7 +4780,7 @@ INSERT INTO "reports_rating" VALUES (NULL,NULL,1240,'Samurai Pizza Cats (TV)','/
 	(NULL,NULL,21491,'Relative Worlds (movie)','/encyclopedia/anime.php?id=21491',17,25,5.882400035858154,5.941500186920166,6.636848449707031),
 	(NULL,NULL,20556,'Godzilla: City on the Edge of Battle (movie)','/encyclopedia/anime.php?id=20556',98,137,6.520400047302246,6.5157999992370605,6.636475086212158),
 	(NULL,NULL,11603,'Yosuga no Sora - In solitude where we are least alone (TV)','/encyclopedia/anime.php?id=11603',894,1531,6.7606000900268555,6.623199939727783,6.6364288330078125);
-INSERT INTO "reports_rating" VALUES (NULL,NULL,10561,'Sex Pistols (OAV)','/encyclopedia/anime.php?id=10561',100,288,6.619999885559082,6.5177998542785645,6.636112213134766),
+INSERT INTO "anime" VALUES (NULL,NULL,10561,'Sex Pistols (OAV)','/encyclopedia/anime.php?id=10561',100,288,6.619999885559082,6.5177998542785645,6.636112213134766),
 	(NULL,NULL,1722,'Jungle Book: Sh?nen Mowgli (TV)','/encyclopedia/anime.php?id=1722',60,143,6.5833001136779785,6.438600063323975,6.635848522186279),
 	(NULL,NULL,1099,'Welcome to Pia Carrot 2 (OAV)','/encyclopedia/anime.php?id=1099',51,165,6.470600128173828,6.403500080108643,6.6356201171875),
 	(NULL,NULL,5079,'Ichigo 100% (TV)','/encyclopedia/anime.php?id=5079',1541,3211,6.774199962615967,6.627900123596191,6.635582447052002),

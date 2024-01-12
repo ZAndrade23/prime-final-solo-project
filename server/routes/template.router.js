@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   // GET route code here
-  const queryText = 'SELECT * FROM reports_rating ORDER BY report_item_straight_average DESC';
+  const queryText = 'SELECT * FROM anime ORDER BY report_item_straight_average DESC limit 100';
   pool.query(queryText)
   .then((result) => { res.send(result.rows);})
   .catch((err) => {
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  const queryText = `SELECT * FROM "reports_rating" 
+  const queryText = `SELECT * FROM "anime" 
   WHERE "report_item_id" = $1
   `;
   pool.query(queryText, [req.params.id])
