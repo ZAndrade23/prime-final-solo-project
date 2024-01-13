@@ -24,6 +24,7 @@ const history =useHistory();
   }
   const clickHandler = () => {
     dispatch({type: 'ADD_TO_LIST'});
+    history.push(`/list`);
   }
 
   return (

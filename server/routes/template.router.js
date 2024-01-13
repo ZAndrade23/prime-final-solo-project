@@ -34,6 +34,21 @@ router.get('/:id', (req, res) => {
  */
 router.post('/', (req, res) => {
   // POST route code here
+  const newAnime = req.body;
+  const queryText = `INSERT INTO "user_anime" ("user_id", "report_item_id")
+  Values ($1, $2);`;
+  const queryValues = [
+    newAnime.user_id,
+    newAnime.report_item_id,
+  ];
+  pool.query(queryText, queryValues)
+  .then(() => {
+    res.sendStatus(201)
+  }).catch((error) => {
+    console.log('error adding anime to list', error);
+    res.sendStatus(500);
+  })
+
 });
 
 module.exports = router;

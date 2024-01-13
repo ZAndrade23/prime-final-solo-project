@@ -23,9 +23,23 @@ function* fetchAllAnime(action) {
       console.log(e);
     }
   }
+
+  function* addToList(action) {
+    try {
+        yield axios.post('api/list', action.payload);
+        yield put({type: 'FETCH_LIST_ITEM'})
+    } 
+    catch(error){
+        console.log('error adding to list', error);
+        alert('SOmething Went wRong');
+
+    }
+  }
+
   function* animeSaga() {
     yield takeEvery('FETCH_ANIME', fetchAllAnime);
-    yield takeEvery('FETCH_ANIME_ID', fetchAnimeId)
+    yield takeEvery('FETCH_ANIME_ID', fetchAnimeId);
+    yield takeEvery('ADD_LIST_ITEM', addToList);
   }
 
   export default animeSaga;

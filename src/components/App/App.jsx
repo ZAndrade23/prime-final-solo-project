@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AnimeDetails from '../AnimeDetails/AnimeDetails';
+import ListPage from '../ListPage/ListPage';
 
 import './App.css';
 
@@ -71,11 +72,19 @@ function App() {
 
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+          
             exact
             path="/details/:animeId"
           >
             <AnimeDetails />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            
+            exact
+            path="/list"
+          >
+            <ListPage />
           </ProtectedRoute>
 
           <Route

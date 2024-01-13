@@ -40,8 +40,8 @@ function Nav() {
           About
         </Link>
 
-        <Link className="navLink" to="/details/:animeId"
-        >Details
+        <Link className="navLink" to="/list"
+        >AnimeList
         </Link> 
       </div>
     </div>
