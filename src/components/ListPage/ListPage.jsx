@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
-
+// import AnimeListItem from '../AnimeListItem/AnimeListItem';
 // import ListPage from '../ListPage/ListPage.jsx';
 function listPage() {
     const details = useSelector(store => store.details);
@@ -9,14 +9,20 @@ function listPage() {
     useEffect(() => {
         dispatch({ type: 'FETCH_LIST' });
       }, []);
+
+      const removeAnime = (id) => {
+        dispatch({type: 'REMOVE_ANIME', payload: id});
+      }
+
     return (
         <div>
             {JSON.stringify(list)}
             
             <main>
                 {/* <ListPage> */}
+                
             <table id='animeList'  > 
-            {/* key={details.report_item_id} */}
+            {/* {key={list.report_item_id}}   */}
                             <thead>
                                 <tr>
                                     <th>Anime</th>
@@ -35,12 +41,17 @@ function listPage() {
                                     <td>{list.report_item_nb_seen}</td>
                                     <td>{list.report_item_straight_average}</td>
                                     <td>{list.report_item_weighted_average}</td>
+                                    <td><button onClick={()=>removeAnime(list.id)}>DELETE ANIME</button></td>
                                             </tr>
                                         )
                                     }
                                     )}
+                                    
                                 </tbody>
                         </table>
+                        
+                        {/* <AnimeListItem>
+                        </AnimeListItem> */}
                         {/* </ListPage> */}
             </main>
         </div>

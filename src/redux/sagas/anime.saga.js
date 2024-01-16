@@ -47,11 +47,24 @@ function* fetchAllAnime(action) {
       console.log('fetchList error:', error);
     }
   }
+
+  function* removeAnime(action) {
+    try{
+      yield axios.delete(`/api/list/${action.payload}` );
+      yield put({ type:'FETCH_LIST'});
+  }catch(error){
+    console.log('error deleting anime from list',error);
+    alert('SOmething went wrong');
+  
+  };
+  };
+
   function* animeSaga() {
     yield takeEvery('FETCH_ANIME', fetchAllAnime);
     yield takeEvery('FETCH_ANIME_ID', fetchAnimeId);
     yield takeEvery('ADD_LIST_ITEM', addToList);
     yield takeEvery('FETCH_LIST', fetchList);
+    yield takeEvery('REMOVE_ANIME', removeAnime);
   }
 
   export default animeSaga;

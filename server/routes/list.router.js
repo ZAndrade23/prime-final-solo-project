@@ -41,4 +41,15 @@ router.post('/', (req, res) => {
 
 });
 
+//DELETE
+router.delete('/:id', (req, res) => {
+  let queryText = `DELETE FROM user_anime WHERE id = $1;`;
+  pool.query(queryText, [req.params.id])
+  .then(() => { res.sendStatus(201)})
+    // res.sendStatus(201);
+  .catch((e) => {
+    console.error('error in delete router', e)
+    res.sendStatus(500);
+  })
+});
 module.exports = router;
