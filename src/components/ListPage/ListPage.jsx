@@ -1,11 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
 
+// import ListPage from '../ListPage/ListPage.jsx';
 function listPage() {
     const details = useSelector(store => store.details);
-
+    const list = useSelector(store => store.list);
+    const dispatch= useDispatch();
+    useEffect(() => {
+        dispatch({ type: 'FETCH_LIST' });
+      }, []);
     return (
         <div>
+            {JSON.stringify(list)}
+            
             <main>
+                {/* <ListPage> */}
             <table id='animeList' key={details.report_item_id} >
                             <thead>
                                 <tr>
@@ -26,6 +35,7 @@ function listPage() {
                                     </tr>
                                 </tbody>
                         </table>
+                        {/* </ListPage> */}
             </main>
         </div>
         

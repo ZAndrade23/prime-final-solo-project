@@ -27,7 +27,7 @@ function* fetchAllAnime(action) {
   function* addToList(action) {
     try {
         yield axios.post('api/list', action.payload);
-        yield put({type: 'FETCH_LIST_ITEM'})
+        yield put({type:'FETCH_LIST' }) //'FETCH_LIST_ITEM'
     } 
     catch(error){
         console.log('error adding to list', error);
@@ -35,11 +35,23 @@ function* fetchAllAnime(action) {
 
     }
   }
-
+  function* fetchList(action) {
+    try {
+      const animeList = yield axios.get('/api/list');
+      // Set the value of the movies reducer:
+      yield put({
+        type: 'SET_LIST',
+        payload: animeList.data
+      });
+    } catch (error) {
+      console.log('fetchList error:', error);
+    }
+  }
   function* animeSaga() {
     yield takeEvery('FETCH_ANIME', fetchAllAnime);
     yield takeEvery('FETCH_ANIME_ID', fetchAnimeId);
     yield takeEvery('ADD_LIST_ITEM', addToList);
+    yield takeEvery('FETCH_LIST', fetchList);
   }
 
   export default animeSaga;

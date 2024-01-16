@@ -1,6 +1,6 @@
 const list = (state = [], action) => {
-    if(action.type === 'ADD_TO_LIST'){
-        return[...state, action.payload];
+    if(action.type === 'SET_LIST'){
+        return action.payload;
     }//  else if (action.type === 'CLEAR_CART') {
     //     return [];
     // }

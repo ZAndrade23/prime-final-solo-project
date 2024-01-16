@@ -9,6 +9,7 @@ import './AnimeDetails.css';
 function AnimeDetails() {
     const dispatch= useDispatch();
 const details = useSelector(store => store.details);
+const list = useSelector(store => store.list);
 const { animeId } = useParams();
 
 useEffect(() => {
@@ -23,7 +24,8 @@ const history =useHistory();
     history.push('/info');
   }
   const clickHandler = () => {
-    dispatch({type: 'ADD_TO_LIST'});
+    
+    dispatch({type: 'ADD_LIST_ITEM', payload: { user_id: list.user_id , report_item_id: details.report_item_id  } });
     history.push(`/list`);
   }
 
