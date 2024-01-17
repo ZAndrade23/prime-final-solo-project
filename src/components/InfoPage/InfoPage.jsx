@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import './InfoPage.css';
 import { useHistory } from 'react-router-dom';
+import Paper from '@mui/material/Paper';
 // This is one of our simplest components
 // It doesn't have local state
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -26,6 +27,7 @@ function InfoPage() {
     <div className="container">
       <p>Info Page</p>
       <h1>AnimeList</h1>
+      <Paper elevation={20} id="anime-display">
       {anime.map(anime => {
         return (
         <table  id='animeItems' onClick={handleClick(anime)} key = {anime.report_item_id}>
@@ -59,6 +61,7 @@ function InfoPage() {
         // </div>
         )
       })}
+      </Paper>
     </div>
   );
 }
