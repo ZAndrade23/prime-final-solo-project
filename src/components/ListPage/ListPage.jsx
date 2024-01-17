@@ -1,19 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import React, { useEffect } from 'react';
-// import AnimeListItem from '../AnimeListItem/AnimeListItem';
-// import ListPage from '../ListPage/ListPage.jsx';
-// function toggleStatus(id)  {
-//     console.log('Status to change', id);
-//     axios.put(`api/list/${id}`, {
-//     }).then((response) =>{
-//         console.log(`status updated`);
-//     }).catch((error) => {
-//         console.log(error);
-//         alert(`could not update the status of ${id}`)
-//     })
-//   }
-function listPage() {
+import PropTypes from 'prop-types';
+import Box from '@mui/material/Box';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import './ListPage.css'
+function listPage(props) {
     const details = useSelector(store => store.details);
     const list = useSelector(store => store.list);
     const dispatch= useDispatch();
@@ -29,24 +32,30 @@ function listPage() {
         dispatch({type: 'UPDATE_STATUS', payload: id});
         
       }
+
       
     return (
         <div>
-            {JSON.stringify(list)}
+        <Paper elevation={20} id="list-form">
+            
+            {/* {JSON.stringify(list)} */}
             
             <main>
-                {/* <ListPage> */}
                 
-            <table id='animeList'  > 
-            {/* {key={list.report_item_id}}   */}
-                            <thead>
-                                <tr>
+                
+            {/* </main> */}
+            <table id='animeList' key={list.report_item_id} > 
+              
+                             <thead>
+                                <tr >
                                     <th>Anime</th>
                                     <th>Votes</th>
                                     <th>Seen</th>
                                     <th>Raiting</th>
                                     <th>Weighted</th>
                                     <th>Status</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                                 <tbody>
@@ -57,11 +66,12 @@ function listPage() {
                                     <td>{list.report_item_nb_votes}</td>
                                     <td>{list.report_item_nb_seen}</td>
                                     <td>{list.report_item_straight_average}</td>
-                                    <td>{list.report_item_weighted_average}</td>
+                                    <td>{list.report_item_weighted_average}</td> 
                                     {/* <td>{list.user_id}</td> */}
                                     <td>{list.status}</td>
-                                    <td><button onClick={()=>removeAnime(list.id)}>DELETE ANIME</button></td>
-                                    <td><button onClick={()=>toggleStatus(list.id)} >SWITCH STATUS</button></td>
+                                    <td><button id='btn1'onClick={()=>toggleStatus(list.id)} >SWITCH STATUS</button></td>
+                                    <td><button id='btn2'onClick={()=>removeAnime(list.id)}>DELETE ANIME</button></td>
+                                    
                                             </tr>
                                         )
                                     }
@@ -70,13 +80,13 @@ function listPage() {
                                 </tbody>
                         </table>
                         
-                        {/* <AnimeListItem>
-                        </AnimeListItem> */}
-                        {/* </ListPage> */}
+                        
             </main>
+        </Paper>
         </div>
         
     )
 }
+
 
 export default listPage;

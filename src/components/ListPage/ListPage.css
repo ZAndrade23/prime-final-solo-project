@@ -1,0 +1,40 @@
+#list-form {
+ background-color: #DECCFE;
+}
+#animeList {
+    border: 2px solid;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    
+
+
+}
+div {
+    background-color:#F7FFB4;
+}
+th {
+    background-color: #90DCFF;
+     color: black; 
+    text-align: middle;
+    padding: 15px;
+}
+td {
+ /* background-color:;  */
+ text-align: middle;
+    padding: 15px;
+}
+tr:nth-child(even):hover{
+    background-color: #58E7C7;
+    color: white;
+}
+tr:nth-child(odd):hover{
+    background-color: #58E7C7;
+    color: white;
+}
+#btn2:hover{
+    background-color:red;
+}
+#btn1:hover{
+    background-color:lightgray;
+}
