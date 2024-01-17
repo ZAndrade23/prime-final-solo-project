@@ -59,12 +59,23 @@ function* fetchAllAnime(action) {
   };
   };
 
+function* changeStatus(action) {
+    try{
+         yield axios.put(`/api/list/${action.payload}`);
+         yield put({ type: 'FETCH_LIST'});
+    }catch(error){
+        console.log('error changing status')
+        alert('something went wrong changing the status');
+    }
+}
+
   function* animeSaga() {
     yield takeEvery('FETCH_ANIME', fetchAllAnime);
     yield takeEvery('FETCH_ANIME_ID', fetchAnimeId);
     yield takeEvery('ADD_LIST_ITEM', addToList);
     yield takeEvery('FETCH_LIST', fetchList);
     yield takeEvery('REMOVE_ANIME', removeAnime);
+    yield takeEvery('UPDATE_STATUS', changeStatus);
   }
 
   export default animeSaga;
