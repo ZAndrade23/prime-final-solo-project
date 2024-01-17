@@ -2,6 +2,7 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
+// import './UserPage.css';
 function UserPage() {
   
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -9,7 +10,7 @@ function UserPage() {
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
+      {/* <p>Your ID is: {user.id}</p> */}
       <LogOutButton className="btn" />
      
       

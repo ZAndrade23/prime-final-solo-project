@@ -45,7 +45,7 @@ const history =useHistory();
                                     <th>Anime</th>
                                     <th>Votes</th>
                                     <th>Seen</th>
-                                    <th>Raiting</th>
+                                    <th>Rating</th>
                                     <th>Weighted</th>
                                 </tr>
                             </thead>

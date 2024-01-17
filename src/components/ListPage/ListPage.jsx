@@ -51,7 +51,7 @@ function listPage(props) {
                                     <th>Anime</th>
                                     <th>Votes</th>
                                     <th>Seen</th>
-                                    <th>Raiting</th>
+                                    <th>Rating</th>
                                     <th>Weighted</th>
                                     <th>Status</th>
                                     <th></th>
