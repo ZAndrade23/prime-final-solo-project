@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-
+import Paper from '@mui/material/Paper';
 import './AnimeDetails.css';
 
 function AnimeDetails() {
@@ -31,12 +31,14 @@ const history =useHistory();
 
   return (
     <div>
+        
         <main>
             <h1>Anime Details</h1>
             <div>
                 {/* <h2>{animeId}</h2> */}
                 
                     <button onClick={handleClick}> Return To Anime Page</button>
+                    <Paper elevation={20} id="anime-details">
                         <table id='animeDetails' key={details.report_item_id} >
                             <thead>
                                 <tr>
@@ -57,10 +59,12 @@ const history =useHistory();
                                     </tr>
                                 </tbody>
                         </table>
-                    
+                        </Paper>
                 <button onClick={clickHandler}>Add To List</button>
+               
             </div>
         </main>
+        
     </div>
 
 //     <div>

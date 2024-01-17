@@ -25,8 +25,8 @@ function InfoPage() {
   };
   return (
     <div className="container">
-      <p>Info Page</p>
-      <h1>AnimeList</h1>
+      {/* <p>Info Page</p> */}
+      <h1>Top Rated Anime</h1>
       <Paper elevation={20} id="anime-display">
       {anime.map(anime => {
         return (
