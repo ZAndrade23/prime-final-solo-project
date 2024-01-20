@@ -9,7 +9,7 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   return (
     <div className="container">
-      <h2>Welcome, {user.username}! Congratulations on joining the AnimeUnited family!</h2>
+      <h2 id="welcomeUser">Welcome, {user.username}! Congratulations on joining the AnimeUnited family!</h2>
       {/* <img alt="" src="../documentation/images/pics/illustration-city-anime-painting-wallpaper-preview.jpg"/>
       <img alt="" src="../documentation/images/pics/naruto-anime-uzamaki-jiraiya-naruto-shippuden-hd-wallpaper-preview.jpg"/> */}
       {/* <img alt="" src="https://c4.wallpaperflare.com/wallpaper/291/819/697/illustration-city-anime-painting-wallpaper-preview.jpg"/> */}

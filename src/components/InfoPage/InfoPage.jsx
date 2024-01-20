@@ -32,12 +32,11 @@ function InfoPage() {
       <img className="infoPic-one"src="https://c4.wallpaperflare.com/wallpaper/186/380/857/your-name-sky-stars-kimi-no-na-wa-wallpaper-preview.jpg"/>
           <SearchBar/>  
       <Paper elevation={20} id="anime-display">
-      {anime.map(anime => {
-        return (
-        <table  id='animeItems' onClick={handleClick(anime)} key = {anime.report_item_id}>
+      
+        
+        <table  id='animeItems'  key = {anime.report_item_id}>
           <thead>
             <tr>
-              {/* <th>Rank</th> */}
               <th>Anime</th>
               <th>Votes</th>
               <th>Seen</th>
@@ -46,25 +45,32 @@ function InfoPage() {
               <th></th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+            
+            {anime.map(anime => { return(
+              <tbody onClick={handleClick(anime)}>
+
+            
+               <tr>
               <td>{anime.report_item_anime}</td>
               <td>{anime.report_item_nb_votes}</td>
               <td>{anime.report_item_nb_seen}</td>
               <td>{anime.report_item_straight_average}</td>
               <td>{anime.report_item_weighted_average}</td>
-            </tr>
-          </tbody>
+              </tr>
+           
+            </tbody>
+             )
+            })}
           </table>
-        // <h3>{anime.report_item_anime}</h3>
-        // {/* <h3>{anime.report_item_anime_href}</h3> */}
-        // <h3>{anime.report_item_nb_votes}</h3>
-        // <h3>{anime.report_item_nb_seen}</h3>
-        // <h3>{anime.report_item_straight_average}</h3>
-        // <h3>{anime.report_item_weighted_average}</h3>
-        // </div>
-        )
-      })}
+         {/* <h3>{anime.report_item_anime}</h3> */}
+         {/* <h3>{anime.report_item_anime_href}</h3> */}
+         {/* <h3>{anime.report_item_nb_votes}</h3> */}
+         {/* <h3>{anime.report_item_nb_seen}</h3> */}
+         {/* <h3>{anime.report_item_straight_average}</h3> */}
+        {/* <h3>{anime.report_item_weighted_average}</h3> */}
+         {/* </div> */}
+        
+      
       </Paper>
       
       <img className="infoPic-two" src="https://c4.wallpaperflare.com/wallpaper/916/657/97/anime-your-name-hd-wallpaper-preview.jpg "/>
