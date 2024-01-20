@@ -30,7 +30,7 @@ const history =useHistory();
   }
 
   return (
-    <div>
+    <div className="container">
         
         <main>
             <h1>Anime Details</h1>
@@ -63,6 +63,7 @@ const history =useHistory();
                 <button onClick={clickHandler}>Add To List</button>
                
             </div>
+            <img  className="detailsPic-one"alt="" src="https://c4.wallpaperflare.com/wallpaper/291/819/697/illustration-city-anime-painting-wallpaper-preview.jpg"/>
         </main>
         
     </div>

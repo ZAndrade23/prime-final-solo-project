@@ -9,3 +9,13 @@
 #anime-display{
     background-color: #DECCFE;
 }
+.infoPic-one {
+    height: 300px;
+    width: 1500px;
+}
+
+.infoPic-two {
+    height: 300px;
+    width: 1500px;
+    margin-top: 10px;
+}

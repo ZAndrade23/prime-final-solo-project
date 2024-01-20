@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import AnimeDetails from '../AnimeDetails/AnimeDetails';
 import ListPage from '../ListPage/ListPage';
 
+
 import './App.css';
 
 function App() {
@@ -86,6 +87,8 @@ function App() {
           >
             <ListPage />
           </ProtectedRoute>
+
+          
 
           <Route
             exact

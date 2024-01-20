@@ -43,6 +43,8 @@ function Nav() {
         <Link className="navLink" to="/list"
         >AnimeList
         </Link> 
+        
+
       </div>
     </div>
   );

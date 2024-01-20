@@ -5,6 +5,7 @@ import axios from 'axios';
 import './InfoPage.css';
 import { useHistory } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
+import SearchBar from '../SearchBar/SearchBar';
 // This is one of our simplest components
 // It doesn't have local state
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -26,7 +27,10 @@ function InfoPage() {
   return (
     <div className="container">
       {/* <p>Info Page</p> */}
+      
       <h1>Top Rated Anime</h1>
+      <img className="infoPic-one"src="https://c4.wallpaperflare.com/wallpaper/186/380/857/your-name-sky-stars-kimi-no-na-wa-wallpaper-preview.jpg"/>
+          <SearchBar/>  
       <Paper elevation={20} id="anime-display">
       {anime.map(anime => {
         return (
@@ -62,6 +66,9 @@ function InfoPage() {
         )
       })}
       </Paper>
+      
+      <img className="infoPic-two" src="https://c4.wallpaperflare.com/wallpaper/916/657/97/anime-your-name-hd-wallpaper-preview.jpg "/>
+      
     </div>
   );
 }

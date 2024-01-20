@@ -35,7 +35,13 @@ function listPage(props) {
 
       
     return (
-        <div>
+        
+        
+        
+        <div className="container">
+             <img className="listPic-two" src="https://c4.wallpaperflare.com/wallpaper/705/826/351/digital-digital-art-artwork-illustration-ricodz-hd-wallpaper-preview.jpg"/>
+            <h1>AnimeUnited List</h1>
+           
         <Paper elevation={20} id="list-form">
             
             {/* {JSON.stringify(list)} */}
@@ -83,6 +89,7 @@ function listPage(props) {
                         
             </main>
         </Paper>
+        <img className="listPic-one"src="https://c4.wallpaperflare.com/wallpaper/803/347/759/anime-natural-light-landscape-forest-studio-ghibli-hd-wallpaper-preview.jpg"/>
         </div>
         
     )
