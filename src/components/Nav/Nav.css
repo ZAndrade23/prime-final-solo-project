@@ -16,6 +16,7 @@
 .nav-title {
   font-size: 24px;
   font-weight: 700;
+  font-family:Stencil Std, fantasy ;
   color: #f2f2f2;
   padding-left: 10px;
   margin: 0;
@@ -29,6 +30,7 @@
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
+  font-family:Stencil Std, fantasy ;
 
   /* these last two make the logout button in
   the nav bar look like another link */

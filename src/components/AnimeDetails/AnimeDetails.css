@@ -9,7 +9,78 @@
     background-color: #E5E5E5;
 }
 .detailsPic-one{
-    height: 300px;
-    width: 1500px;
+    /* display:flex; */
+    /* justify-content: center; */
+    /* height: 10%; */
+    /* object-fit:cover; */
+    width: 100%;
+    /* margin-left:20%; */
+    border:8px solid gray;
+    /* border-radius:25%; */
+}
+/* .secondaryDetails{ */
+    /* display:flex; */
+    /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+        /* /* display: grid; */
+        /* align-items: center;  */
+        /* grid-template-columns: 1fr 1fr 1fr; */
+        /* column-gap: 5px; */ 
+        
+    
+    /* color:white; */
+    
+/* } */
+.content{
+    /* width:100%; */
+    /* min-height:100vh; */
+    display:grid;
+    place-items:center;
+    color:black;
+    background-color: white;
+    /* line-height: 1.42857142857143; */
+    font-size: 14px;
+    
+}
+
+.animeImage{
+    display:flex;
+    
+    width: 15%;
+    border: 8px solid gray;
+    
+}
+
+h1{
+    /* color:white; */
+    /* font-weight:; */
+    font-weight: lighter;
+    color:white;
+    
+}
+
+#returnBtn{
+    background-color: #99AAB5;
+}
+
+#addBtn{
+    background-color: #99AAB5;
+}
+
+.h1-details{
+    color:black;
+    font-weight: bold;
+}
+.h1-detailTitle{
+    color: white;
+    font-family: Stencil Std, fantasy;
+}
+.h2-details{
+    font-weight: lighter;
+    text-indent: 30px;
+}
+.h1h2{
+    color:black;
 }
 

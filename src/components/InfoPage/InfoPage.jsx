@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
@@ -6,12 +6,14 @@ import './InfoPage.css';
 import { useHistory } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 import SearchBar from '../SearchBar/SearchBar';
+import SearchResultsList from '../SearchResultsList/SearchResultsList';
 // This is one of our simplest components
 // It doesn't have local state
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is
 
 function InfoPage() {
+  const [results, setResults] = useState([]);
   const history= useHistory();
   const dispatch = useDispatch();
   const anime= useSelector(store => store.anime);
@@ -28,9 +30,14 @@ function InfoPage() {
     <div className="container">
       {/* <p>Info Page</p> */}
       
-      <h1>Top Rated Anime</h1>
-      <img className="infoPic-one"src="https://c4.wallpaperflare.com/wallpaper/186/380/857/your-name-sky-stars-kimi-no-na-wa-wallpaper-preview.jpg"/>
-          <SearchBar/>  
+      <h1 className="h1-topAnime">Top Rated Anime</h1>
+      {/* <img className="infoPic-one"src="https://c4.wallpaperflare.com/wallpaper/186/380/857/your-name-sky-stars-kimi-no-na-wa-wallpaper-preview.jpg"/> */}
+         
+      <div className="search-bar-container">
+        <SearchBar setResults={setResults} />
+        {results && results.length > 0 && <SearchResultsList results={results} />}
+      </div>
+
       <Paper elevation={20} id="anime-display">
       
         

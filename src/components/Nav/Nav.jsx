@@ -24,25 +24,26 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <Link className="navLink" to="/user">
+            {/* <Link className="navLink" to="/user">
               Home
-            </Link>
+            </Link> */}
 
             <Link className="navLink" to="/info">
-              Top Anime
+              Browse
             </Link>
-
+            <Link className="navLink" to="/list"
+        >MyList
+        </Link> 
             <LogOutButton className="navLink" />
+            
           </>
         )}
 
-        {/* <Link className="navLink" to="/about">
+        <Link className="navLink" to="/about">
           About
-        </Link> */}
+        </Link>
 
-        <Link className="navLink" to="/list"
-        >AnimeList
-        </Link> 
+        
         
 
       </div>

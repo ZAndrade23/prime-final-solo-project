@@ -1,9 +1,25 @@
-.userPic-one{
-    height:500px;
-    width:1500px;
+/* .userPic-one{ */
+    /* display:flex; */
+    /* justify-content: center; */
+    /* align-items:center;  */
+    /* height:60%; */
+    /* object-fit:cover; */
+    /* width:60%; */
+    /* margin-left:20%; */
     
-}
+/* } */
 #welcomeUser{
     color: white;
 }
-   
+#allAnime-link{
+    color: white;
+}
+   .userBody{
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/682/435/620/naruto-anime-uzumaki-naruto-jiraiya-naruto-shippuuden-hd-wallpaper-preview.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-attachment: fixed;
+    background-size:cover;
+    width: 100%;
+    height:100%;
+   }

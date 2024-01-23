@@ -20,12 +20,21 @@ tr {
 }
 
 .infoPic-one {
-    height: 300px;
-    width: 1500px;
+    /* height: 400px; */
+    /* object-fit:cover; */
+    height: 400px;
+    /* object-fit:cover; */
+    /* width: 100%; */
+    width: 1950px;
+     
 }
 
 .infoPic-two {
     height: 300px;
-    width: 1500px;
+    width: 1875px;
     margin-top: 10px;
+}
+.h1-topAnime{
+    color:white;
+    font-family: Stencil Std, fantasy;
 }
