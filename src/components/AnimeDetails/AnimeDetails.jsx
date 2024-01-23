@@ -6,9 +6,12 @@ import { useHistory } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 import './AnimeDetails.css';
 
+import Button from '@mui/material/Button';
+
 function AnimeDetails() {
     const dispatch= useDispatch();
 const details = useSelector(store => store.details);
+console.log("details",details);
 const list = useSelector(store => store.list);
 const { animeId } = useParams();
 
@@ -33,11 +36,12 @@ const history =useHistory();
     <div className="container">
         
         <main>
-            <h1>Anime Details</h1>
+
+            <h1 className="h1-detailTitle">Anime Details</h1>
             <div>
                 {/* <h2>{animeId}</h2> */}
                 
-                    <button onClick={handleClick}> Return To Anime Page</button>
+                    <Button id="returnBtn" variant="contained" onClick={handleClick}> Return To Anime Page</Button>
                     <Paper elevation={20} id="anime-details">
                         <table id='animeDetails' key={details.report_item_id} >
                             <thead>
@@ -47,6 +51,7 @@ const history =useHistory();
                                     <th>Seen</th>
                                     <th>Rating</th>
                                     <th>Weighted</th>
+                                    <th>Add To List </th>
                                 </tr>
                             </thead>
                                 <tbody>
@@ -56,14 +61,32 @@ const history =useHistory();
                                     <td>{details.report_item_nb_seen}</td>
                                     <td>{details.report_item_straight_average}</td>
                                     <td>{details.report_item_weighted_average}</td>
+                                    <td> <Button id="addBtn" variant="contained" onClick={clickHandler}>Add</Button></td>
                                     </tr>
                                 </tbody>
                         </table>
                         </Paper>
-                <button onClick={clickHandler}>Add To List</button>
+                
                
             </div>
-            <img  className="detailsPic-one"alt="" src="https://c4.wallpaperflare.com/wallpaper/291/819/697/illustration-city-anime-painting-wallpaper-preview.jpg"/>
+        <div className="content">
+            
+                    <img className="animeImage"  src={details.animeImage}/>
+           
+                <div className="detailsContent">
+                    <h1 className="h1-details">Genres:</h1>
+            <h2 className="h2-details">{details.animeGenres}</h2>
+            <h1 className="h1-details">Themes:</h1>
+            <h2 className="h2-details"> {details.animeThemes}</h2>
+            <h1 className="h1-details">Plot Summary:</h1>
+            <h2 className="h2-details"> {details.animePlotSummary}</h2>
+            <h1 className="h1-details">Running time:</h1>
+            <h2 className="h2-details"> {details.animeRunTime} minutes</h2>
+            <h1 className="h1-details">Episode count:</h1>
+            <h2 className="h2-details"> {details.animeEpisodes}</h2>
+            </div>
+        </div>
+            {/* <img  Name="detailsPic-one"classalt="" src="https://c4.wallpaperflare.com/wallpaper/291/819/697/illustration-city-anime-painting-wallpaper-preview.jpg"/> */}
         </main>
         
     </div>
