@@ -11,7 +11,7 @@ function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   return (
-    <div className="container">
+    <div className="container-user">
      
       <h2 id="welcomeUser">Welcome, {user.username}! Congratulations on joining the AnimeUnited family!</h2>
       {/* <img alt="" src="../documentation/images/pics/illustration-city-anime-painting-wallpaper-preview.jpg"/>
@@ -20,7 +20,7 @@ function UserPage() {
       {/* <img className="userPic-one" alt="" src="https://c4.wallpaperflare.com/wallpaper/682/435/620/naruto-anime-uzumaki-naruto-jiraiya-naruto-shippuuden-hd-wallpaper-preview.jpg"/> */}
       {/* <p>Your ID is: {user.id}</p> */}
       {/* <LogOutButton className="btn" /> */}
-      <br/><br/><br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <div className="search-bar-container">
         <SearchBar setResults={setResults} />
         {results && results.length > 0 && <SearchResultsList results={results} />}
@@ -34,6 +34,7 @@ function UserPage() {
       </Link>
       to explore...
       </h2>
+      <br/> <br/>
     </div>
   );
 }

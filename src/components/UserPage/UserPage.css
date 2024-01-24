@@ -14,12 +14,13 @@
 #allAnime-link{
     color: white;
 }
-   .userBody{
-    background-image: url(https://c4.wallpaperflare.com/wallpaper/682/435/620/naruto-anime-uzumaki-naruto-jiraiya-naruto-shippuuden-hd-wallpaper-preview.jpg);
-    background-repeat: no-repeat;
-    background-position:center;
-    background-attachment: fixed;
-    background-size:cover;
+   .container-user{
+    /* border: 2px solid magenta; */
+    /* background-image: url(https://c4.wallpaperflare.com/wallpaper/682/435/620/naruto-anime-uzumaki-naruto-jiraiya-naruto-shippuuden-hd-wallpaper-preview.jpg); */
+    /* background-repeat: no-repeat; */
+    /* background-position:center; */
+    /* background-attachment: fixed; */
+    /* background-size:cover; */
     width: 100%;
-    height:100%;
+    height:100vh;
    }
