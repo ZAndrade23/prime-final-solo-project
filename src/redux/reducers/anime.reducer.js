@@ -7,6 +7,4 @@ const anime = (state = [], action) => {
     }
   }
   
-
-
 export default anime;

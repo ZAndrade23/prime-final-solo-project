@@ -7,10 +7,6 @@ import { useHistory } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResultsList from '../SearchResultsList/SearchResultsList';
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
 
 function InfoPage() {
   const [results, setResults] = useState([]);
@@ -22,25 +18,18 @@ function InfoPage() {
   },[]);
   const handleClick = (anime) => () => {
     console.log(anime);
-  // Dispatch to redux and navigate to the details page and then select elected movie not all movies
+  // Dispatch to redux and navigate to the details page and then select selected anime
   dispatch({type: 'SET_DETAILS', payload: anime});  
   history.push(`/details/${anime.report_item_id}`);
   };
   return (
     <div className="container">
-      {/* <p>Info Page</p> */}
-      
       <h1 className="h1-topAnime">Top Rated Anime</h1>
-      {/* <img className="infoPic-one"src="https://c4.wallpaperflare.com/wallpaper/186/380/857/your-name-sky-stars-kimi-no-na-wa-wallpaper-preview.jpg"/> */}
-         
       <div className="search-bar-container">
         <SearchBar setResults={setResults} />
         {results && results.length > 0 && <SearchResultsList results={results} />}
       </div>
-
       <Paper elevation={20} id="anime-display">
-      
-        
         <table  id='animeItems'  key = {anime.report_item_id}>
           <thead>
             <tr>
@@ -52,11 +41,8 @@ function InfoPage() {
               <th></th>
             </tr>
           </thead>
-            
             {anime.map(anime => { return(
               <tbody onClick={handleClick(anime)}>
-
-            
                <tr>
               <td>{anime.report_item_anime}</td>
               <td>{anime.report_item_nb_votes}</td>
@@ -64,24 +50,12 @@ function InfoPage() {
               <td>{anime.report_item_straight_average}</td>
               <td>{anime.report_item_weighted_average}</td>
               </tr>
-           
             </tbody>
              )
             })}
           </table>
-         {/* <h3>{anime.report_item_anime}</h3> */}
-         {/* <h3>{anime.report_item_anime_href}</h3> */}
-         {/* <h3>{anime.report_item_nb_votes}</h3> */}
-         {/* <h3>{anime.report_item_nb_seen}</h3> */}
-         {/* <h3>{anime.report_item_straight_average}</h3> */}
-        {/* <h3>{anime.report_item_weighted_average}</h3> */}
-         {/* </div> */}
-        
-      
       </Paper>
-      
       <img className="infoPic-two" src="https://c4.wallpaperflare.com/wallpaper/916/657/97/anime-your-name-hd-wallpaper-preview.jpg "/>
-      
     </div>
   );
 }

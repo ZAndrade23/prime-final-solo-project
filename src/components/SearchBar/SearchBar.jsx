@@ -1,10 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
 import React, {useState} from 'react';
-import axios from 'axios';
-
-
-// import { FaSearch } from "react-icons/fa";
-
 import "./SearchBar.css";
 
 export const SearchBar = ({ setResults }) => {
@@ -22,7 +16,6 @@ export const SearchBar = ({ setResults }) => {
             anime.report_item_anime &&
             anime.report_item_anime.toLowerCase().includes(value)
           );
-        //   console.log(results);
         });
         setResults(results);
         console.log(results);
@@ -36,7 +29,6 @@ export const SearchBar = ({ setResults }) => {
 
   return (
     <div className="input-wrapper">
-      {/* <FaSearch id="search-icon" /> */}
       <input
         placeholder="Type to search..."
         value={input}

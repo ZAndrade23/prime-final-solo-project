@@ -4,9 +4,8 @@ import axios from 'axios';
 function* fetchAllAnime(action) {
     const id = action.payload
     try {
-      // Get the movies:
+      // Get the anime:
       const animeResponse = yield axios.get('/api/anime');
-      // Set the value of the movies reducer:
       yield put({
         type: 'SET_ANIME',
         payload: animeResponse.data
@@ -22,16 +21,11 @@ function* fetchAllAnime(action) {
       const animeXML = yield axios.get(`https://cdn.animenewsnetwork.com/encyclopedia/api.xml?anime=${action.payload}`);
       var convert= require('xml-js');
       var data= convert.xml2json(animeXML.data,{compact: true, alwaysArray: true, spaces: 0});
-    //  var  loc = data.getString("ann");
-     //JSONObject cred = new JSONObject();
       var myArray = JSON.parse(data);
-
-      //console.log(animeId.data);
-      //console.log(myArray);
       var genres = ''
       var themes = ''
       var img = myArray.ann[0].anime[0].info[0].img[0]._attributes.src;
-      //var plotSummary = myArray.ann[0].anime[0].info[10]._text[0];
+      
       for (let i = 0; i < myArray.ann[0].anime[0].info.length; i++) {
         if(myArray.ann[0].anime[0].info[i]._attributes.type == 'Plot Summary'){
          var  plotSummary = myArray.ann[0].anime[0].info[i]._text[0];
@@ -48,11 +42,6 @@ function* fetchAllAnime(action) {
       if(myArray.ann[0].anime[0].info[i]._attributes.type == 'Running time')
         var runTime =myArray.ann[0].anime[0].info[i]._text[0];
       }
-      // console.log(runTime)
-      // console.log(episodes);
-      // console.log(themes);
-      // console.log(genres);
-      // console.log(plotSummary);
       console.log(animeDBDetails.data.report_item_id);
       let animeData = {report_item_id: animeDBDetails.data.report_item_id, report_item_anime: animeDBDetails.data.report_item_anime, report_item_nb_votes: animeDBDetails.data.report_item_nb_votes, report_item_nb_seen: animeDBDetails.data.report_item_nb_seen, report_item_straight_average: animeDBDetails.data.report_item_straight_average, report_item_weighted_average: animeDBDetails.data.report_item_weighted_average ,animeRunTime: runTime, animeEpisodes:episodes, animeThemes:themes, animeGenres: genres, animePlotSummary: plotSummary, animeImage: img};
       yield put ({type:'SET_DETAILS', payload: animeData});
@@ -64,7 +53,7 @@ function* fetchAllAnime(action) {
   function* addToList(action) {
     try {
         yield axios.post('api/list', action.payload);
-        yield put({type:'FETCH_LIST' }) //'FETCH_LIST_ITEM'
+        yield put({type:'FETCH_LIST' }) 
     } 
     catch(error){
         console.log('error adding to list', error);
@@ -72,10 +61,9 @@ function* fetchAllAnime(action) {
 
     }
   }
-  function* fetchList(action) {
+  function* fetchList() {
     try {
       const animeList = yield axios.get('/api/list');
-      // Set the value of the movies reducer:
       yield put({
         type: 'SET_LIST',
         payload: animeList.data

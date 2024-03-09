@@ -1,21 +1,15 @@
 .about{
     font-size: 25px;
     line-height: 1.42857142857143;
-    /* display:grid;
-    place-items:center; */
-    
 }
 p{
-    /* color:black; */
     color:white;
     text-indent: 50px;
 }
 li{
-    /* color:black; */
     color:white;
 }
 ul{
-    /* color:black; */
     color:white;
 }
 .aboutPic-one{

@@ -5,14 +5,10 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
-
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
@@ -21,19 +17,15 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AnimeDetails from '../AnimeDetails/AnimeDetails';
 import ListPage from '../ListPage/ListPage';
-
-
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-
   const user = useSelector(store => store.user);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
-
   return (
     <Router>
       <div>
@@ -87,8 +79,6 @@ function App() {
           >
             <ListPage />
           </ProtectedRoute>
-
-          
 
           <Route
             exact
