@@ -104,7 +104,7 @@ function App() {
               <Redirect to="/user" />
               :
               // Otherwise, show the registration page
-              <RegisterPage />
+              <LoginPage />
             }
           </Route>
 
