@@ -5,7 +5,7 @@ export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
 
   const fetchData = (value) => {
-     fetch('http://localhost:3000/api/anime')
+     fetch('https://anime-united-app-74ff1f3b2ee6.herokuapp.com/api/anime')
       .then((response) => response.json())
       .then((json) => {
         const results = json.filter((anime) => {
@@ -37,5 +37,5 @@ export const SearchBar = ({ setResults }) => {
     </div>
   );
 };
-
+// http://localhost:3000/api/anime
 export default SearchBar;
