@@ -96,7 +96,7 @@ function App() {
 
           <Route
             exact
-            path="/registration"
+            path="/login"
           >
             {user.id ?
               // If the user is already logged in, 
